@@ -1,6 +1,7 @@
-links.sh
+local.sh
 git.txt
-DIR_gnupg
-DIR_RESTORE
-DIR_cache_duplicity
-DIR_config
+DOTgnupg
+DOTssh
+RESTORE
+DOTconfig_rclone
+DOTcache_duplicity
