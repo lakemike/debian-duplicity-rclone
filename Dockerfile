@@ -24,7 +24,7 @@ COPY files /
 RUN chmod 0755 /entrypoint \
  && sed "s/\$DOCKER_USER/$DOCKER_USER/g" -i /entrypoint
 
-VOLUME ["/home/akito/.gnupg", "/home/akito/.config", "/home/akito/.cache/duplicity", "/home/akito/RESTORE" ]
+VOLUME ["/home/akito/.gnupg", "/home/akito/.ssh", "/home/akito/.config/rclone", "/home/akito/.cache/duplicity", "/home/akito/RESTORE" ]
 
 # Brief check that it works.
 RUN duplicity --version

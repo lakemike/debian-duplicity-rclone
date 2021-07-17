@@ -1,18 +1,19 @@
 #!/bin/bash
 
-mkdir -p ./DIR_config ./DIR_gnupg ./DIR_RESTORE ./DIR_cache_duplicity
 MYUID=$(id -u)
 MYGID=$(id -g)
-chown $MYUID ./DIR_config ./DIR_gnupg ./DIR_RESTORE ./DIR_cache_duplicity
-chgrp $MYGID ./DIR_config ./DIR_gnupg ./DIR_RESTORE ./DIR_cache_duplicity
+mkdir -p     ./DOTconfig_rclone ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
+chown $MYUID ./DOTconfig_rclone ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
+chgrp $MYGID ./DOTconfig_rclone ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
 docker run --rm -it \
   -e UID=$MYUID \
   -e GID=$MYGID \
   -v /etc/localtime:/etc/localtime:ro \
-  -v $PWD/DIR_gnupg:/home/akito/.gnupg \
-  -v $PWD/DIR_config:/home/akito/.config \
-  -v $PWD/DIR_RESTORE:/home/akito/RESTORE \
-  -v $PWD/DIR_cache_duplicity:/home/akito/.cache/duplicity \
+  -v $PWD/RESTORE:/home/akito/RESTORE \
+  -v $PWD/DOTssh:/home/akito/.ssh \
+  -v $PWD/DOTgnupg:/home/akito/.gnupg \
+  -v $PWD/DOTconfig_rclone:/home/akito/.config/rclone \
+  -v $PWD/DOTcache_duplicity:/home/akito/.cache/duplicity \
   lakemike/debian-duplicity-rclone:buster-slim
 
 exit
