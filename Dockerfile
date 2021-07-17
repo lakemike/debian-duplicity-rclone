@@ -7,7 +7,7 @@ RUN mkdir -p /usr/share/man/man1
 
 RUN apt-get update && apt-get --no-install-recommends --yes upgrade
 RUN apt-get --yes install apt-utils dialog
-RUN apt-get --no-install-recommends --yes install gosu \
+RUN apt-get --no-install-recommends --yes install gosu procps toilet \
        ca-certificates openssl openssh-client gnupg2 vim p7zip unzip \
        duplicity rclone rsync wget curl default-jdk
 
