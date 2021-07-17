@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mkdir -p ./DIR_gnupg ./DIR_RESTORE ./DIR_cache_duplicity
-MYUID=1000000
-MYGID=1000000
+MYUID=$(id -u)
+MYGID=$(id -g)
 chown $MYUID.$MYGID ./DIR_gnupg ./DIR_RESTORE ./DIR_cache_duplicity
 docker run --rm -it \
   -e UID=$MYUID \
