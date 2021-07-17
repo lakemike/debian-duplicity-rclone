@@ -26,8 +26,12 @@ eval cd ~"$DOCKER_USER"
 
 duplicity --version
 rclone --version
-java -version
-eval ls /usr/bin/crypto*jar
+
+if [ "$JAVA_INSTALLED" != 0 ]
+then
+	java -version
+	eval ls /usr/bin/crypto*jar
+fi
 
 exec "$@"
 
