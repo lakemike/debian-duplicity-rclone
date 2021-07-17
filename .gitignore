@@ -1,2 +1,5 @@
 myrun.sh
 git.txt
+DIR_gnupg
+DIR_RESTORE
+DIR_cache_duplicity
