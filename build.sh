@@ -1,18 +1,25 @@
 #!/bin/bash
 
 # Build debian image based on
-#  - buster-slim (debian)
+#  - bullseye-slim (debian)
 #  - duplicity
 #  - rclone
 #  - java
 #  - Cryptomator
 
+PROJECT="lakemike/debian-duplicity-rclone"
 DATE=`date '+%Y-%m-%d'`
 docker login
-# requires Dockerfile
-docker build -t lakemike/debian-duplicity-rclone:buster-slim \
-  -t lakemike/debian-duplicity-rclone:latest \
-  -t lakemike/debian-duplicity-rclone:stable \
-  -t "lakemike/debian-duplicity-rclone:stable-$DATE" .
-docker push --all-tags lakemike/debian-duplicity-rclone
+
+BASEIMG="buster-slim"
+docker build --build-arg BASEIMG=$BASEIMG \
+  --target base -t $PROJECT:$BASEIMG-$DATE -t $PROJECT:$BASEIMG .
+
+BASEIMG="bullseye-slim"
+docker build --build-arg BASEIMG=$BASEIMG \
+  --target base -t $PROJECT:$BASEIMG-$DATE -t $PROJECT:$BASEIMG -t $PROJECT:latest .
+docker build --build-arg BASEIMG=$BASEIMG \
+  --target cryptomator -t $PROJECT:$BASEIMG-cryptomator-$DATE -t $PROJECT:latest-cryptomator .
+docker push --all-tags $PROJECT
+docker images | grep "$PROJECT"
 

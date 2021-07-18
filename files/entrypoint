@@ -27,7 +27,7 @@ eval cd ~"$DOCKER_USER"
 duplicity --version
 rclone --version
 
-if [ "$JAVA_INSTALLED" != 0 ]
+if [ "$CRYPTOMATOR_INSTALLED" != 0 ]
 then
 	java -version
 	eval ls /usr/bin/crypto*jar

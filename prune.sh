@@ -4,7 +4,8 @@
 # manage local images if necessary
 docker image ls
 docker image prune -f
-IMAGEID=`docker images | grep -m1 debian-duplicity-rclone | awk '{print $3}'`
+IMAGEID=`docker images | grep debian-duplicity-rclone | awk '{print $3}' | sort | uniq | tr '\n' ' '`
+echo IMAGES $IMAGEID
 docker image rmi -f $IMAGEID
 
 # remove images in registry if necessary
