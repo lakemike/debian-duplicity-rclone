@@ -1,2 +1,2 @@
 # debian-duplicity-rclone
-Dockerfile and build scripts based on debian-slim, duplicity, rclone
+Dockerfile and build scripts based on slim debian, duplicity, rclone
