@@ -14,7 +14,8 @@ docker run --rm -it \
   -v $PWD/DOTgnupg:/home/akito/.gnupg \
   -v $PWD/DOTconfig_rclone:/home/akito/.config/rclone \
   -v $PWD/DOTcache_duplicity:/home/akito/.cache/duplicity \
-  lakemike/debian-duplicity-rclone:latest-cryptomator
+  lakemike/debian-duplicity-rclone:latest
+#  lakemike/debian-duplicity-rclone:latest bash -c "cd ./RESTORE; ./duplicity_restore.v2.sh"
 
 exit
 
