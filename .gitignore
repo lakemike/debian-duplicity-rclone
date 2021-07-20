@@ -1,9 +1,8 @@
 .env
 local.sh
 git.txt
-DOTgnupg
-DOTssh
-RESTORE
-DOTconfig_rclone
-DOTconfig
-DOTcache_duplicity
+DOTgnupg*
+DOTssh*
+RESTORE*
+DOTconfig*
+DOTcache*
