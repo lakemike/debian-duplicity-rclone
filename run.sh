@@ -2,9 +2,9 @@
 
 MYUID=$(id -u)
 MYGID=$(id -g)
-mkdir -p     ./DOTconfig_rclone ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
-chown $MYUID ./DOTconfig_rclone ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
-chgrp $MYGID ./DOTconfig_rclone ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
+mkdir -p     ./DOTconfig ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
+chown $MYUID ./DOTconfig ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
+chgrp $MYGID ./DOTconfig ./DOTgnupg ./RESTORE ./DOTcache_duplicity ./DOTssh
 docker run --rm -it \
   -e UID=$MYUID \
   -e GID=$MYGID \
@@ -12,7 +12,7 @@ docker run --rm -it \
   -v $PWD/RESTORE:/home/akito/RESTORE \
   -v $PWD/DOTssh:/home/akito/.ssh \
   -v $PWD/DOTgnupg:/home/akito/.gnupg \
-  -v $PWD/DOTconfig_rclone:/home/akito/.config/rclone \
+  -v $PWD/DOTconfig:/home/akito/.config \
   -v $PWD/DOTcache_duplicity:/home/akito/.cache/duplicity \
   lakemike/debian-duplicity-rclone:latest
 #  lakemike/debian-duplicity-rclone:latest bash -c "cd ./RESTORE; ./duplicity_restore.v2.sh"
