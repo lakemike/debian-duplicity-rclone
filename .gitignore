@@ -1,6 +1,6 @@
 .env
 local.sh
-git.sh
+git.txt
 DOTgnupg
 DOTssh
 RESTORE

@@ -34,9 +34,10 @@ git push origin main
 
 # on grautvornix (treats current directory as /local, does not have any global config?)
 cd /share/MyConfig/debian-duplicity-rclone/
-./git.sh config user.email "mseewald@gmail.com"
 ./git.sh init
-./git.sh remote add origin https://github.com/lakemike/debian-duplicity-rclone
+./git.sh config user.email "mseewald@gmail.com"
+./git.sh config init.defaultBranch main
+./git.sh remote add origin https://lakemike:<MYDEVELOPERTOKEN>@github.com/lakemike/debian-duplicity-rclone
 ./git.sh pull origin main
 # commit
 ./git.sh add .
